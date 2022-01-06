@@ -1,12 +1,12 @@
 {
   "required": true,
   "minVersion": "0.8",
-  "package": "net.arkveil.tutorialmod.mixin",
+  "package": "net.arkveil.rappellinggear.mixin",
   "compatibilityLevel": "JAVA_16",
   "mixins": [
   ],
   "client": [
-    "TutorialMixin"
+    "RappellingGearMixin"
   ],
   "injectors": {
     "defaultRequire": 1
