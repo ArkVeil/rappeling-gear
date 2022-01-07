@@ -1,6 +1,6 @@
-package net.arkveil.rappellinggear.mixin;
+package net.arkveil.rappelgear.mixin;
 
-import net.arkveil.rappellinggear.RappellingGearMod;
+import net.arkveil.rappelgear.RappelGearMod;
 import net.minecraft.client.gui.screen.TitleScreen;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
@@ -8,9 +8,9 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 @Mixin(TitleScreen.class)
-public class RappellingGearMixin {
+public class RappelGearMixin {
 	@Inject(at = @At("HEAD"), method = "init()V")
 	private void init(CallbackInfo info) {
-		RappellingGearMod.LOGGER.info("This line is printed by an example mod mixin!");
+		RappelGearMod.LOGGER.info("This line is printed by an example mod mixin!");
 	}
 }

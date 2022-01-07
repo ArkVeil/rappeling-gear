@@ -1,9 +1,9 @@
 {
   "schemaVersion": 1,
-  "id": "rappellinggear",
+  "id": "rappelgear",
   "version": "${version}",
 
-  "name": "Rappelling Gear",
+  "name": "Rappel Gear",
   "description": "Try and learn along with the tutorial, dont just follow",
   "authors": [
     "ArkVeil"
@@ -13,16 +13,16 @@
   },
 
   "license": "MIT",
-  "icon": "assets/rappellinggear/icon.png",
+  "icon": "assets/rappelgear/icon.png",
 
   "environment": "*",
   "entrypoints": {
     "main": [
-      "net.arkveil.rappellinggear.RappellingGearMod"
+      "net.arkveil.rappelgear.RappelGearMod"
     ]
   },
   "mixins": [
-    "rappellinggear.mixins.json"
+    "rappelgear.mixins.json"
   ],
 
   "depends": {
