@@ -17,28 +17,19 @@ import net.minecraft.util.shape.VoxelShape;
 import net.minecraft.util.shape.VoxelShapes;
 import net.minecraft.world.BlockView;
 
-public class RopeBlock {
+public class RopeBlock extends Block{
 
-    public static final Block ROPE_BLOCK = registerBlock("rope_block",
-            new Block(FabricBlockSettings.of(Material.WOOL).strength(0.5f)));
-    public static final Item ROPE_ITEM = registerBlockItem("rope",new BlockItem(ROPE_BLOCK, new FabricItemSettings().group(ItemGroup.TOOLS)));
-
-    private static Block registerBlock(String name, Block block)
-    {
-        return Registry.register(Registry.BLOCK, new Identifier(RappelGearMod.MOD_ID, name), block);
+    public RopeBlock(Settings settings) {
+        super(settings);
     }
 
-    private static Item registerBlockItem(String name, BlockItem blockItem)
-    {
-        return Registry.register(Registry.ITEM, new Identifier(RappelGearMod.MOD_ID, name), blockItem);
-    }
-/*
     @Override
     public VoxelShape getOutlineShape(BlockState state, BlockView view, BlockPos pos, ShapeContext context)
     {
-        return VoxelShapes.cuboid(0f, 0f, 0f, 1f, 1.0f, 0.5f);
+        return VoxelShapes.cuboid(0.375f, 0f, 0.375f, 0.625f, 1.0f, 0.625f);
     }
-*/
-    public static void registerBlocks() { RappelGearMod.LOGGER.info("Registering Blocks"); }
+
+
+
 
 }

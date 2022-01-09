@@ -2,6 +2,7 @@ package net.arkveil.rappelgear;
 
 import net.arkveil.rappelgear.block.RopeBlock;
 import net.arkveil.rappelgear.item.RappelItems;
+import net.arkveil.rappelgear.registry.RappelBlocks;
 import net.fabricmc.api.ModInitializer;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -21,7 +22,6 @@ public class RappelGearMod implements ModInitializer {
 		// Proceed with mild caution.
 
 		LOGGER.info("Hello Fabric world!");
-		//RappelItems.registerRappelItems();
-		RopeBlock.registerBlocks();
+		RappelBlocks.registerAll();
 	}
 }
