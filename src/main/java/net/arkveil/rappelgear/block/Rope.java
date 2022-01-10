@@ -55,10 +55,13 @@ public class Rope extends FacingBlock{
     }
 
     @Override
-    public BlockState getPlacementState(ItemPlacementContext ctx)
-    {
-        return (BlockState)this.getDefaultState().with(FACING, ctx.getPlayerLookDirection());
-
+    public BlockState getPlacementState(ItemPlacementContext ctx) {
+        Direction direction = ctx.getSide();    //gets side of block hit
+        BlockState blockState = ctx.getWorld().getBlockState(ctx.getBlockPos().offset(direction));
+        if (blockState.isOf(this) && blockState.get(FACING) == direction) {
+            return (BlockState)this.getDefaultState().with(FACING, direction);
+        }
+        return (BlockState)this.getDefaultState().with(FACING, direction.getOpposite());
     }
 
 
