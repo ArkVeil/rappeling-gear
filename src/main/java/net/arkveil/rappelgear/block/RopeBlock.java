@@ -18,12 +18,11 @@ import net.minecraft.util.shape.VoxelShapes;
 import net.minecraft.world.BlockView;
 
 public class RopeBlock extends FacingBlock{
-
-    protected static final VoxelShape CENTER_SHAPE  = Block.createCuboidShape(0.375f, 0f, 0.375f, 0.625f, 1.0f, 0.625f);
-    protected static final VoxelShape EAST_SHAPE    = Block.createCuboidShape(0.375f, 0f, 0.75f, 0.625f, 1.0f, 1.0f);
-    protected static final VoxelShape WEST_SHAPE    = Block.createCuboidShape(0.375f, 0f, 0.0f, 0.625f, 1.0f, 0.25f);
-    protected static final VoxelShape SOUTH_SHAPE   = Block.createCuboidShape(0.0f, 0f, 0.375f, 0.25f, 1.0f, 0.625f);
-    protected static final VoxelShape NORTH_SHAPE   = Block.createCuboidShape(0.625f, 0f, 0.375f, 1.0f, 1.0f, 0.625f);
+    protected static final VoxelShape CENTER_SHAPE  = VoxelShapes.cuboid(0.375f, 0f, 0.375f, 0.625f, 1.0f, 0.625f);
+    protected static final VoxelShape EAST_SHAPE    = VoxelShapes.cuboid(0.375f, 0f, 0.75f, 0.625f, 1.0f, 1.0f);
+    protected static final VoxelShape WEST_SHAPE    = VoxelShapes.cuboid(0.375f, 0f, 0.0f, 0.625f, 1.0f, 0.25f);
+    protected static final VoxelShape SOUTH_SHAPE   = VoxelShapes.cuboid(0.0f, 0f, 0.375f, 0.25f, 1.0f, 0.625f);
+    protected static final VoxelShape NORTH_SHAPE   = VoxelShapes.cuboid(0.625f, 0f, 0.375f, 1.0f, 1.0f, 0.625f);
 
     public RopeBlock(AbstractBlock.Settings settings) {
         super(settings);
