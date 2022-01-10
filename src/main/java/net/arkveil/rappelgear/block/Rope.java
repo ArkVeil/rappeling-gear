@@ -34,19 +34,15 @@ public class Rope extends FacingBlock{
                 return CENTER_SHAPE;
             }
             case NORTH: {
-                RappelGearMod.LOGGER.info("Facing: North");
                 return NORTH_SHAPE;
             }
             case SOUTH: {
-                RappelGearMod.LOGGER.info("Facing: South");
                 return SOUTH_SHAPE;
             }
             case WEST: {
-                RappelGearMod.LOGGER.info("Facing: West");
                 return WEST_SHAPE;
             }
             case EAST: {
-                RappelGearMod.LOGGER.info("Facing: East");
                 return EAST_SHAPE;
             }
         }
