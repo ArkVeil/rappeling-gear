@@ -1,7 +1,7 @@
 package net.arkveil.rappelgear.registry;
 
 import net.arkveil.rappelgear.RappelGearMod;
-import net.arkveil.rappelgear.block.RopeBlock;
+import net.arkveil.rappelgear.block.Rope;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.minecraft.block.Block;
@@ -15,7 +15,7 @@ import net.minecraft.util.registry.Registry;
 
 public class RappelBlocks {
 
-    public static final RopeBlock ROPE_BLOCK = new RopeBlock(FabricBlockSettings.of(Material.BAMBOO).noCollision().sounds(BlockSoundGroup.WOOL));
+    public static final Rope ROPE_BLOCK = new Rope(FabricBlockSettings.of(Material.BAMBOO).noCollision().sounds(BlockSoundGroup.WOOL));
     /*
     public static final Block ROPE_BLOCK = registerBlock("rope_block",
             new Block(FabricBlockSettings.of(Material.WOOL).strength(0.5f)));
