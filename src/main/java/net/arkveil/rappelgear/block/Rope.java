@@ -23,13 +23,16 @@ public class Rope extends FacingBlock{
 
     public Rope(AbstractBlock.Settings settings) {
         super(settings);
-        this.setDefaultState(this.getStateManager().getDefaultState().with(FACING, Direction.UP));
+        this.setDefaultState(this.getStateManager().getDefaultState().with(FACING, Direction.DOWN));
     }
 
     @Override
     public VoxelShape getOutlineShape(BlockState state, BlockView view, BlockPos pos, ShapeContext context)
     {
         switch (state.get(FACING)) {
+            default: {
+                return CENTER_SHAPE;
+            }
             case NORTH: {
                 RappelGearMod.LOGGER.info("Facing: North");
                 return NORTH_SHAPE;
@@ -47,8 +50,6 @@ public class Rope extends FacingBlock{
                 return EAST_SHAPE;
             }
         }
-        RappelGearMod.LOGGER.info("Facing: Center");
-        return CENTER_SHAPE;
     }
 
     @Override
@@ -60,7 +61,8 @@ public class Rope extends FacingBlock{
     @Override
     public BlockState getPlacementState(ItemPlacementContext ctx)
     {
-        return (BlockState)this.getDefaultState().with(Properties.FACING, ctx.getPlayerFacing());
+        return (BlockState)this.getDefaultState().with(FACING, ctx.getPlayerLookDirection());
+
     }
 
 

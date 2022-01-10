@@ -7,16 +7,19 @@
       "model": "rappelgear:block/rope"
     },
     "facing=east": {
-      "model": "rappelgear:block/rope"
+      "model": "rappelgear:block/wall_rope",
+      "y": 90
     },
     "facing=north": {
-      "model": "rappelgear:block/rope"
+      "model": "rappelgear:block/wall_rope"
     },
     "facing=south": {
-      "model": "rappelgear:block/rope"
+      "model": "rappelgear:block/wall_rope",
+      "y": 180
     },
     "facing=west": {
-      "model": "rappelgear:block/rope"
+      "model": "rappelgear:block/wall_rope",
+      "y": 270
     }
   }
 }
