@@ -1,5 +1,25 @@
 {
   "variants": {
-    "": {"model": "rappelgear:block/rope"}
+    "facing=up": {
+      "model": "rappelgear:block/rope"
+    },
+    "facing=down": {
+      "model": "rappelgear:block/rope"
+    },
+    "facing=east": {
+      "model": "rappelgear:block/wall_rope",
+      "y": 90
+    },
+    "facing=north": {
+      "model": "rappelgear:block/wall_rope"
+    },
+    "facing=south": {
+      "model": "rappelgear:block/wall_rope",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "rappelgear:block/wall_rope",
+      "y": 270
+    }
   }
 }
