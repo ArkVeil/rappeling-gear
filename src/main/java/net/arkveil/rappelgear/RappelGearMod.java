@@ -1,7 +1,5 @@
 package net.arkveil.rappelgear;
 
-import net.arkveil.rappelgear.block.RopeBlock;
-import net.arkveil.rappelgear.item.RappelItems;
 import net.arkveil.rappelgear.registry.RappelBlocks;
 import net.fabricmc.api.ModInitializer;
 import org.apache.logging.log4j.LogManager;
