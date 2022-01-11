@@ -1,6 +1,5 @@
 package net.arkveil.rappelgear.block;
 
-import net.arkveil.rappelgear.RappelGearMod;
 import net.minecraft.block.AbstractBlock;
 import net.minecraft.block.FacingBlock;
 import net.minecraft.block.Block;
@@ -51,7 +50,7 @@ public class Rope extends FacingBlock{
     @Override
     protected void appendProperties (StateManager.Builder<Block, BlockState> stateManager)
     {
-        stateManager.add((Properties.FACING));
+        stateManager.add((FACING));
     }
 
     @Override
