@@ -1,18 +1,22 @@
 package net.arkveil.rappelgear.block;
 
-import net.arkveil.rappelgear.RappelGearMod;
 import net.minecraft.block.AbstractBlock;
 import net.minecraft.block.FacingBlock;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.ShapeContext;
+import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemPlacementContext;
 import net.minecraft.state.StateManager;
 import net.minecraft.state.property.Properties;
+import net.minecraft.util.ActionResult;
+import net.minecraft.util.Hand;
+import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
 import net.minecraft.util.shape.VoxelShape;
 import net.minecraft.world.BlockView;
+import net.minecraft.world.World;
 
 public class Rope extends FacingBlock{
     protected static final VoxelShape CENTER_SHAPE  = Block.createCuboidShape(6.0, 0.0, 6.0, 10.0, 16.0, 10.0);
@@ -26,6 +30,11 @@ public class Rope extends FacingBlock{
         this.setDefaultState(this.getStateManager().getDefaultState().with(FACING, Direction.DOWN));
     }
 
+    /**
+     * Determines hitbox for rope depending on facing.
+     * @param state - state of rope block on placement
+     * @return hitbox dimensions
+     */
     @Override
     public VoxelShape getOutlineShape(BlockState state, BlockView view, BlockPos pos, ShapeContext context)
     {
@@ -51,20 +60,35 @@ public class Rope extends FacingBlock{
     @Override
     protected void appendProperties (StateManager.Builder<Block, BlockState> stateManager)
     {
-        stateManager.add((Properties.FACING));
+        stateManager.add((FACING));
     }
 
+    /**
+     * Determines logic for block placement.
+     * @param ctx context for item usage
+     * @return blockstate of new block
+     */
     @Override
     public BlockState getPlacementState(ItemPlacementContext ctx) {
         Direction direction = ctx.getSide();    //gets side of block hit
-        BlockState blockState = ctx.getWorld().getBlockState(ctx.getBlockPos().offset(direction));
-        if (blockState.isOf(this) && blockState.get(FACING) == direction) {
+        //grab blockstate of block in world at offset from block being placed
+        //BlockState blockState = ctx.getWorld().getBlockState(ctx.getBlockPos().offset(direction.getOpposite()));
+        //.isOf(block) returns true if block == this
+        //if (blockState.isOf(this) && blockState.get(FACING) == direction) {
+        //    return (BlockState)this.getDefaultState().with(FACING, direction);
+        //}
+        //if blockside clicked facing up, set facing as up
+        if (direction == Direction.UP)
+        {
             return (BlockState)this.getDefaultState().with(FACING, direction);
         }
         return (BlockState)this.getDefaultState().with(FACING, direction.getOpposite());
     }
 
+    @Override
+    public ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit)
+    {
 
-
+    }
 
 }
