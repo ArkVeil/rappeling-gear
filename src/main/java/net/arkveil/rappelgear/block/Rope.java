@@ -1,11 +1,14 @@
 package net.arkveil.rappelgear.block;
 
+import net.arkveil.rappelgear.RappelGearMod;
+import net.arkveil.rappelgear.registry.RappelBlocks;
 import net.minecraft.block.AbstractBlock;
 import net.minecraft.block.FacingBlock;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.ShapeContext;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemPlacementContext;
 import net.minecraft.state.StateManager;
 import net.minecraft.state.property.Properties;
@@ -88,7 +91,22 @@ public class Rope extends FacingBlock{
     @Override
     public ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit)
     {
+        if(world.isClient) {
+            if (!state.isOf(this)) return ActionResult.PASS; //check if clicked item is rope
+            if (!player.getMainHandStack().isOf(this.asItem())) return ActionResult.PASS; //check if held item is rope
+            return ActionResult.SUCCESS;        //has to be .isClient to show hand motion
 
+        }
+//        BlockPos down = pos.offset(Direction.DOWN);
+//        BlockState blockDown = world.getBlockState(down);
+//        Direction direction = state.get(FACING);
+//        if(blockDown.isAir() && !world.isOutOfHeightLimit(down.getY()))
+//        {
+//            world.setBlockState(down,state);
+//            if(!player.isCreative() ) player.getMainHandStack().decrement(1);
+//        }
+        RappelGearMod.LOGGER.info("Rope used");
+        return ActionResult.SUCCESS;
     }
 
 }
